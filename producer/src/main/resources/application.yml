@@ -1,0 +1,10 @@
+bootstrap-servers: "localhost:9092"
+replications: 1
+schema-registry: "http://localhost:8081"
+partitions: 5
+topic:
+  avro: customerEventsAvroTopic
+  json: customerEventsJSONTopic
+  proto: customerEventsProtoTopic
+
+logging.level.root: INFO

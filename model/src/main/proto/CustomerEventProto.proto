@@ -1,0 +1,17 @@
+syntax = "proto3";
+package com.vass.model.proto;
+
+message CustomerEventProto {
+  int64 timestamp = 1;
+  int64 customerId =2;
+  string name=3;
+  CustomerEventTypeProto eventType =4;
+
+  enum CustomerEventTypeProto {
+      CustomerCreated=0;
+      CustomerUpdated=1;
+      CustomerDeleted=2;
+      CustomerPending=3;
+      CustomerClosed=4;
+  }
+}

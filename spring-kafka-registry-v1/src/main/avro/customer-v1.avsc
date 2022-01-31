@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "Customer",
+  "namespace": "com.vass.model",
+  "fields": [
+    {
+      "name": "timestamp",
+      "type": "long",
+      "doc": "mandatory timestamp"
+    },
+    {
+      "name": "customerId",
+      "type": "long",
+      "doc": "mandatory customer id"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": "mandatory name"
+    },
+    {
+       "name": "email",
+       "type": ["null", "string"],
+       "default": null,
+       "doc": "optional email address"
+    }
+  ]
+}

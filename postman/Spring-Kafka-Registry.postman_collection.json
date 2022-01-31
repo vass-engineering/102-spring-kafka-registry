@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "48f3d47f-6916-4878-9902-5a00ae0eeaff",
+		"name": "Spring-Kafka-Registry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Customer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.set(\"timestampMs\", new Date().getTime());",
+							"",
+							"let names = pm.collectionVariables.get(\"names\");",
+							"",
+							"if(!names || names.length == 0) {",
+							"    names = [\"Kr\", \"Ca\", \"Ra\", \"Mrok\", \"Cru\",",
+							"            \"Ray\", \"Bre\", \"Zed\", \"Drak\", \"Mor\", \"Jag\", \"Mer\", \"Jar\", \"Mjol\",",
+							"            \"Zork\", \"Mad\", \"Cry\", \"Zur\", \"Creo\", \"Azak\", \"Azur\", \"Rei\", \"Cro\",",
+							"            \"Mar\", \"Luk\" ];",
+							"}",
+							"",
+							"let name = names.shift();",
+							"let email =name+\"@gmail.com\";",
+							"pm.collectionVariables.set(\"name\", name);",
+							"pm.collectionVariables.set(\"email\", email);",
+							"pm.collectionVariables.set(\"names\", names);",
+							"",
+							"const customerId = Math.floor((Math.random()*100 +1));",
+							"pm.globals.set(\"customerId\", customerId);",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"timestamp\": {{timestampMs}},\n    \"customerId\": {{customerId}},\n    \"name\": \"{{name}}\",\n    \"email\": \"{{email}}\"  \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9080/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "name",
+			"value": ""
+		},
+		{
+			"key": "email",
+			"value": ""
+		},
+		{
+			"key": "names",
+			"value": ""
+		}
+	]
+}

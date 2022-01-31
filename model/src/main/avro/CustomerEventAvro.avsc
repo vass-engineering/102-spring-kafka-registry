@@ -1,0 +1,17 @@
+{
+    "namespace": "com.vass.model.avro",
+    "type": "record",
+    "name": "CustomerEventAvro",
+    "version": "1.0",
+     "fields": [
+       {"name": "timestamp",  "type": "long"},
+       {"name": "customerId", "type": "long"},
+       {"name": "name", "type": "string"},
+       {"name":  "eventType", "type":  {
+           "type": "enum",
+           "name": "CustomerEventTypeAvro",
+           "symbols" : ["CustomerCreated", "CustomerUpdated", "CustomerDeleted", "CustomerPending", "CustomerClosed"]
+          }
+       }
+     ]
+}
