@@ -15,14 +15,23 @@
     },
     {
       "name": "name",
-      "type": "string",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
       "doc": "mandatory name"
     },
     {
-       "name": "email",
-       "type": ["null", "string"],
-       "default": null,
-       "doc": "optional email address"
+      "name": "email",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": "optional email address",
+      "default": null
     }
   ]
 }
