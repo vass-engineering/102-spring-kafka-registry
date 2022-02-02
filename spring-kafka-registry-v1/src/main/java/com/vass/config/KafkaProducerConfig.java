@@ -60,6 +60,7 @@ public class KafkaProducerConfig {
         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 10000);
         props.put(KafkaAvroSerializerConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistry);
         //props.put(KafkaAvroSerializerConfig.KEY_SUBJECT_NAME_STRATEGY, TopicNameStrategy.class.getName());
+        //props.put(KafkaAvroSerializerConfig.VALUE_SUBJECT_NAME_STRATEGY, TopicNameStrategy.class.getName());
         props.put(KafkaAvroSerializerConfig.AUTO_REGISTER_SCHEMAS, true);
         return new DefaultKafkaProducerFactory<>(props);
     }
