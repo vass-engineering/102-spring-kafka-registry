@@ -3,6 +3,7 @@ package com.vass.config;
 import com.vass.model.Customer;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import io.confluent.kafka.serializers.KafkaAvroSerializerConfig;
+//import io.confluent.kafka.serializers.subject.TopicNameStrategy;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -58,6 +59,7 @@ public class KafkaProducerConfig {
         props.put(ProducerConfig.LINGER_MS_CONFIG, 10);
         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 10000);
         props.put(KafkaAvroSerializerConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistry);
+        //props.put(KafkaAvroSerializerConfig.KEY_SUBJECT_NAME_STRATEGY, TopicNameStrategy.class.getName());
         props.put(KafkaAvroSerializerConfig.AUTO_REGISTER_SCHEMAS, true);
         return new DefaultKafkaProducerFactory<>(props);
     }
