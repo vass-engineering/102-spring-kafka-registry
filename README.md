@@ -16,8 +16,8 @@ mvn spring-boot:run -f producer/pom.xml
 mvn spring-boot:run -f consumer/pom.xml
 ```
 
-curl http://localhost:8080/generateAvro?count=1&pause=10
+curl http://localhost:8080/generateAvro?count=1
 
-curl http://localhost:8080/generateProto?count=1&pause=10
+curl http://localhost:8080/generateProto?count=1
 
-curl http://localhost:8080/generateJson?count=1&pause=10
+curl http://localhost:8080/generateJson?count=1

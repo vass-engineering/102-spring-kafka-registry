@@ -33,9 +33,8 @@ public class ProducerService {
     private GeneratorService generator;
     private Random random = new Random();
 
-    public void produceAvro(Integer count, Integer pause) throws InterruptedException {
+    public void produceAvro(Integer count) throws InterruptedException {
         count = Objects.requireNonNullElse(count,1);
-        pause = Objects.requireNonNullElse(count, 1000 + random.nextInt(5) * 1000);
         for (int i = 0; i < count; i++) {
             var events = generator.generateChainForAvro();
             for (CustomerEventAvro event : events) {
@@ -51,15 +50,14 @@ public class ProducerService {
                         log.info(">>> produceAvro {} onFailure: {}", n, ex.getMessage());
                     }
                 });
-                log.info(">>> sleep {} ms", pause);
-                Thread.sleep(pause);
+                log.info(">>> sleep {} ms", 1000);
+                Thread.sleep(1000);
             }
         }
     }
 
-    public void produceProto(Integer count, Integer pause) throws InterruptedException {
+    public void produceProto(Integer count) throws InterruptedException {
         count = Objects.requireNonNullElse(count,1);
-        pause = Objects.requireNonNullElse(count, 1000 + random.nextInt(5) * 1000);
         for (int i = 0; i < count; i++) {
             var events = generator.generateChainForProto();
             for (CustomerEventProtoOuterClass.CustomerEventProto event : events) {
@@ -75,16 +73,15 @@ public class ProducerService {
                         log.info(">>> produceProto {} onFailure: {}", n, ex.getMessage());
                     }
                 });
-                log.info(">>> sleep {} ms", pause);
-                Thread.sleep(pause);
+                log.info(">>> sleep {} ms", 1000);
+                Thread.sleep(1000);
             }
         }
     }
 
 
-    public void produceJson(Integer count, Integer pause) throws InterruptedException {
+    public void produceJson(Integer count) throws InterruptedException {
         count = Objects.requireNonNullElse(count,1);
-        pause = Objects.requireNonNullElse(count, 1000 + random.nextInt(5) * 1000);
         for (int i = 0; i < count; i++) {
             var events = generator.generateChainForJson();
             for (CustomerEventJson event : events) {
@@ -100,8 +97,8 @@ public class ProducerService {
                         log.info(">>> produceJson {} onFailure: {}", n, ex.getMessage());
                     }
                 });
-                log.info(">>> sleep {} ms", pause);
-                Thread.sleep(pause);
+                log.info(">>> sleep {} ms", 1000);
+                Thread.sleep(1000);
             }
         }
     }

@@ -16,20 +16,20 @@ public class CustomerController {
     }
 
     @GetMapping("/generateAvro")
-    public String generateNewPaymentAvro(@RequestParam(required = false) Integer count, @RequestParam(required = false) Integer pause) throws InterruptedException {
-        producerService.produceAvro(count, pause);
+    public String generateNewPaymentAvro(@RequestParam(required = false) Integer count) throws InterruptedException {
+        producerService.produceAvro(count);
         return "OK";
     }
 
     @GetMapping("/generateProto")
-    public String generateNewPaymentProto(@RequestParam(required = false) Integer count, @RequestParam(required = false) Integer pause) throws InterruptedException {
-        producerService.produceProto(count, pause);
+    public String generateNewPaymentProto(@RequestParam(required = false) Integer count) throws InterruptedException {
+        producerService.produceProto(count);
         return "OK";
     }
 
     @GetMapping("/generateJson")
-    public String generateNewPaymentJson(@RequestParam(required = false) Integer count, @RequestParam(required = false) Integer pause) throws InterruptedException {
-        producerService.produceJson(count, pause);
+    public String generateNewPaymentJson(@RequestParam(required = false) Integer count) throws InterruptedException {
+        producerService.produceJson(count);
         return "OK";
     }
 }
