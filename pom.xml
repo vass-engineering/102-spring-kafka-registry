@@ -16,6 +16,6 @@
         <module>producer</module>
         <module>consumer</module>
         <module>spring-kafka-registry-v1</module>
-        <!--module>spring-kafka-registry-v2</module-->
+        <module>spring-kafka-registry-v2</module>
     </modules>
 </project>

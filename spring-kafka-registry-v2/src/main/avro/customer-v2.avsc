@@ -1,0 +1,30 @@
+{
+  "type": "record",
+  "name": "Customer",
+  "namespace": "com.vass.model",
+  "fields": [
+    {
+      "name": "timestamp",
+      "type": "long",
+      "doc": "mandatory timestamp"
+    },
+    {
+      "name": "customerId",
+      "type": "long",
+      "doc": "mandatory customer id"
+    },
+    {
+      "name": "name",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "mandatory name"
+    },
+    {
+      "name": "age",
+      "type": "int",
+      "doc": "mandatory age"
+    }
+  ]
+}
