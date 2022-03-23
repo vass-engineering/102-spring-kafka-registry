@@ -14,22 +14,24 @@
       "doc": "mandatory customer id"
     },
     {
-      "name": "email",
-      "type": [
-        "null",
-        {
-          "type": "string",
-          "avro.java.string": "String"
-        }
-      ],
-      "doc": "optional email address",
-      "default": null
+      "name": "name",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "mandatory name"
     },
     {
-      "name": "age",
-      "type": "int",
-      "doc": "mandatory age",
-      "default": 0
+      "name": "sex",
+      "type": {
+          "type": "enum",
+          "name": "Gender",
+          "symbols": [
+                    "MALE", "FEMALE"
+                ]
+      },
+      "doc": "mandatory sex",
+      "default": "FEMALE"
     }
   ]
 }
